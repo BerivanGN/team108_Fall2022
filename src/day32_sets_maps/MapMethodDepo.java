@@ -1,8 +1,6 @@
 package day32_sets_maps;
 
-import java.util.Collection;
-import java.util.HashMap;
-import java.util.Map;
+import java.util.*;
 
 public class MapMethodDepo {
 
@@ -17,7 +15,7 @@ public class MapMethodDepo {
         ogrenciMap.put(103,"Ali-Cem-11-K-TM");
         ogrenciMap.put(104,"Ayşe-Can-10-H-MF");
         ogrenciMap.put(105,"Sevgi-Can-10-H-MF");
-        ogrenciMap.put(106,"Sevgi-Can-10-K-MF");
+        ogrenciMap.put(106,"Sevgi-Can-11-K-TM");
 
         return ogrenciMap;
 
@@ -82,7 +80,7 @@ public class MapMethodDepo {
     }
 
 
-    public static void sinifListesiYazdirma(Map<Integer, String> ogrenciMap, String sinif, String sube) {
+    public static void subeListesiYazdirma(Map<Integer, String> ogrenciMap, String sinif, String sube) {
 
         Collection<String> valueCollection=ogrenciMap.values();
 
@@ -127,5 +125,223 @@ public class MapMethodDepo {
         return ogrenciMap;
 
 }
+
+    public static void sinifListesiYazdirma(Map<Integer, String> ogrenciMap, String sinif) {
+
+        // Verilen sınıftaki öğrencilerin no,isim,soyisim,bölümlerini
+        // bir liste olarak yazdıran bir metod oluşturun.
+
+        System.out.println("No isim soyisim bölüm");
+        System.out.println("=====================");
+
+        Set<Map.Entry<Integer, String>> entrySeti = ogrenciMap.entrySet();
+
+        for (Map.Entry<Integer,String> eachEntry:entrySeti
+             ) { // 101=Ali-Can-11-H-MF
+
+            // 1 - Entry'den value'yi alalım
+            String entryValue= eachEntry.getValue(); // Ali-Can-11-H-MF
+
+            // 2 - Bu value'yi parçalayalım ve bir array'e store edelim
+            String[] valueArr=entryValue.split("-"); // [Ali, Can, 11, H, MF]
+
+            // sınıf bilgisini kontrol edip
+            // istenen sınıf ile aynı ise istenen bilgileri yazdıralım
+            if (valueArr[2].equalsIgnoreCase(sinif)){
+                System.out.println(eachEntry.getKey() + " " +
+                        valueArr[0] + " " +
+                        valueArr[1] + " " +
+                        valueArr[4]);
+            }
+
+        }
+
+    }
+
+    public static void bolumListesiOlusturma(Map<Integer, String> ogrenciMap, String bolum) {
+
+        // Verilen bölümdeki öğrencilerin
+        // No, isim, soyisim ve sınıflarını yazdıran bir metod oluşturun
+
+        System.out.println("No isim soyisim sınıf");
+        System.out.println("=====================");
+
+        Set<Map.Entry<Integer, String>> entrySeti= ogrenciMap.entrySet();
+
+        for (Map.Entry<Integer,String> eachEntry:entrySeti
+             ) {
+            String entryValue=eachEntry.getValue();
+
+            String[] entryValueArr=entryValue.split("-"); // [Ali, Can, 11, H, MF]
+
+            if (entryValueArr[4].equalsIgnoreCase(bolum)){
+
+                System.out.println(eachEntry.getKey() + " " +
+                        entryValueArr[0] + " " +
+                        entryValueArr[1] + " " +
+                        entryValueArr[2]);
+            }
+
+
+        }
+
+    }
+
+    public static Map<Integer, String> soyisimleriBuyukHarfYap(Map<Integer, String> ogrenciMap) {
+
+        // Map'teki soyisimleri büyük harfe çeviren bir metod oluşturun
+
+        // 1 - entrySet oluşturalım
+        Set<Map.Entry<Integer, String>> entrySeti= ogrenciMap.entrySet();
+
+        // 2 - for each loop ile her bir entry'i elden geçirip soyisimleri büyük harf yapalım
+        for (Map.Entry<Integer,String> eachEntry:entrySeti
+        ) {
+
+            // 3 - entry'den value'yi alalım
+            String entryValue=eachEntry.getValue();
+
+            // 4 - soyisim bilgisine ulaşmak için parçalayalım
+            String[] entryValueArr=entryValue.split("-"); // [Ali, Can, 11, H, MF]
+
+            // 5 - soyismi büyük harf yapalım
+            entryValueArr[1]=entryValueArr[1].toUpperCase(); // [Ali, CAN, 11, H, MF]
+
+            // 6 - değişikliği yaptıktan sonra yeniden birleştirmeleri yapıp
+            //     map'i update etmeliyiz.
+
+            // 7 - setValue() kullanarak value'yu yeni haline update edelim
+
+            eachEntry.setValue(entryValueArr[0]+"-"+
+                               entryValueArr[1]+"-"+
+                               entryValueArr[2]+"-"+
+                               entryValueArr[3]+"-"+
+                               entryValueArr[4]);
+        }
+        return ogrenciMap;
+    }
+
+    public static void tumListeYazdir(Map<Integer, String> ogrenciMap) {
+
+        Set<Map.Entry<Integer,String>> ogrenciEntrySet = ogrenciMap.entrySet();
+
+        System.out.println("No    öğrenci bilgileri");
+        System.out.println("=======================");
+
+        for (Map.Entry<Integer,String> eachEntry: ogrenciEntrySet
+        ) {
+            System.out.println(eachEntry);
+        }
+    }
+
+    public static Map<Integer, String> siniflariArttir(Map<Integer, String> ogrenciMap) {
+
+        // map'te istediğimiz değişikliği yaptıktan sonra
+        // map'i update etmenin en kolay yolu setEntry() metodudur.
+
+        Set<Map.Entry<Integer, String>> entrySeti= ogrenciMap.entrySet();
+
+        for (Map.Entry<Integer, String> eachEntry : entrySeti) { // 101=Ali-Can-11-H-MF
+
+            String entryValue=eachEntry.getValue(); // Ali-Can-11-H-MF
+
+            String[] entryValueArr = entryValue.split("-");
+
+            int sinifInt=Integer.parseInt(entryValueArr[2]);
+
+            if (sinifInt==12){
+                entryValueArr[2]="Mezun";
+            }else {
+                entryValueArr[2]=sinifInt+1+"";
+            }
+
+            // sınıf bilgisini güncelledik
+            // bu güncellemeyi map'e işlememiz lazım
+
+            eachEntry.setValue(entryValueArr[0]+"-"+
+                    entryValueArr[1]+"-"+
+                    entryValueArr[2]+"-"+
+                    entryValueArr[3]+"-"+
+                    entryValueArr[4]);
+        }
+        return ogrenciMap;
+    }
+
+    public static void sinifSiraliListeYazdir(Map<Integer, String> ogrenciMap) {
+
+        // 101=Ali-Can-11-H-MF
+        // 11 H Ali Can 101
+
+        // tüm öğrenci listesini
+        // sınıf şube isim soyisim no şeklinde
+        // doğal sıralı olarak
+        // yazdıran bir metod oluşturun.
+
+        Set<Map.Entry<Integer, String>> entrySeti = ogrenciMap.entrySet();
+        Set<String> siraliOgrenciSeti=new TreeSet<>();
+
+        for (Map.Entry<Integer, String> eachEntry : entrySeti) {
+
+            String entryValue= eachEntry.getValue(); // Ali-Can-11-H-MF
+
+            String[] entryValueArr=entryValue.split("-"); // [Ali, Can, 11, H, MF]
+
+            // Entry'den istenen bilgileri alıp yeni bir String oluşturacagız
+            // Stringleri sıralı olarak yazdıracağız
+
+            String istenenFormattakiBilgi=entryValueArr[2]+" "+
+                                          entryValueArr[3]+" "+
+                                          entryValueArr[0]+" "+
+                                          entryValueArr[1]+" "+
+                                          eachEntry.getKey();
+
+            siraliOgrenciSeti.add(istenenFormattakiBilgi);
+
+
+        }
+        System.out.println("sınıf şube isim soyisim no");
+        System.out.println("==========================");
+        for (String s : siraliOgrenciSeti) {
+            System.out.println(s);
+        }
+
+
+    }
+
+    public static void isimSoyisimSiraliListeYazdir(Map<Integer, String> ogrenciMap) {
+
+        // Tüm öğrenci listesini
+        // isim soyisim no sınıf şube bolum
+        // şekinde sıralı olarak yazdıran bir metot oluşturun
+
+        Set<Map.Entry<Integer, String>> entrySeti = ogrenciMap.entrySet();
+        Set<String> isimSoyisimSiraliSet = new TreeSet<>();
+
+        for (Map.Entry<Integer, String> eachEntry : entrySeti) {
+
+            String value=eachEntry.getValue();
+
+            String[] valueArr=value.split("-");
+
+            String istenenFormattakiBilgi=valueArr[0]+ " " +
+                    valueArr[1]+ " " +
+                    eachEntry.getKey()+ " " +
+                    valueArr[2]+ " " +
+                    valueArr[3]+ " " +
+                    valueArr[4];
+
+            isimSoyisimSiraliSet.add(istenenFormattakiBilgi);
+        }
+        // Sıralı seti yazdıralım
+
+        System.out.println("isim soyisim no sınıf şube bolum");
+        System.out.println("================================");
+
+        for (String each : isimSoyisimSiraliSet) {
+            System.out.println(each);
+        }
+
+
+    }
 }
 

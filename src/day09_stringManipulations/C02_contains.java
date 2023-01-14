@@ -9,9 +9,11 @@ public class C02_contains {
         System.out.println(str.contains("mutlu")); //true
 
         //charSequence : char dizisi
+        // System.out.println(str.contains('j')); char kabul etmez char dizisi kabul eder
 
 
         System.out.println(str.contains("j")); // false ( çünkü cümledeki j buyuk)
+
         System.out.println(str.contains(" ")); // true
 
         // contains metod'u kaç tane olduguna değil

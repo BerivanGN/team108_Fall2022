@@ -21,6 +21,7 @@ public class C06_indexOf {
         }else {
             int cokIndexi=girilenCumle.indexOf("cok");
             int boslukIndexi=girilenCumle.indexOf(" ", cokIndexi+1);
+            // cokIndex'i >>>> cokindexinden sonraki ilk boşluğu bul..
 
 
             System.out.println(girilenCumle.substring(cokIndexi, boslukIndexi));

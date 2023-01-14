@@ -8,6 +8,7 @@ public class C04_ForLoop {
         // input olarak verilen sayıdan 1'e kadar tüm sayıları yazdırın
 
         int input=23; // eger kullanıcının pozitif ve negatif değer gireceğini öngörüp
+                      // ona göre kod yazmassak loop body'si çalışmayabilir
         
         if (input>1) {
             for (int i = input; i >= 1; i--) {
@@ -19,8 +20,8 @@ public class C04_ForLoop {
             }
         }
         // Eğer şart i'nin tüm değerleri için doğru oluyorsa
-        //teknik olarak sonsuz loop oluşur.
-        //bilgisayarımız sonsuza kadar çalışmaz, ram dolar veya int'in sınırlarına ulaşır
+        // teknik olarak sonsuz loop oluşur.
+        // bilgisayarımız sonsuza kadar çalışmaz, ram dolar veya int'in sınırlarına ulaşır
         // ama teknik olarak loop denir.
          /*
          for (int i = 1; i < 0; i++) {

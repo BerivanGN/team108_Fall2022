@@ -38,9 +38,9 @@ public class C08_NestedForLoop {
 
         // NEsted loop ile yapalım
 
-        for (int i = 1; i <=4; i++) { // buna auter loop denir ve i'nin çarpılacağı sayıyı kontrol eder.
+        for (int i = 1; i <=4; i++) { // buna auter loop denir ve i'nin çarpılacağı sayıyı kontrol eder.(sütun)
 
-            for (int j = 1; j <=4; j++) { // buna da inner loop denir ve önceki örnekteki i'yi kontrol eder.
+            for (int j = 1; j <=4; j++) { // buna da inner loop denir ve önceki örnekteki i'yi kontrol eder.(satır)
 
                 System.out.print(i*j + " ");
             }

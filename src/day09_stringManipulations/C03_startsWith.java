@@ -15,7 +15,7 @@ public class C03_startsWith {
         System.out.println(str.contains("mutlu")); // true (mutlu içerir mi diye sorar cevap evet)
         System.out.println(str.startsWith("mutlu")); // false (mutlu ile baslar mı cevap hayır)
 
-        System.out.println(str.startsWith("mutlu", 5)); //2. index ve sonrası mutlu ile başlar mı
+        System.out.println(str.startsWith("mutlu", 5)); //5. index ve sonrası mutlu ile başlar mı
 
         System.out.println(str.startsWith("v",2)); // 2. index ve sonrası "v" ile başlar mı
 

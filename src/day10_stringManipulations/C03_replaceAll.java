@@ -40,7 +40,7 @@ public class C03_replaceAll {
 
         String input3= "Ali Can, Merve Star, Mark Tom";
         input3=input3.replaceAll("\\W","");
-        System.out.println(input3.length());
+        System.out.println(input3.length()); // 22
 
 
 

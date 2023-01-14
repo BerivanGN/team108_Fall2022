@@ -8,7 +8,7 @@ public class C05_indexOf {
         // str "cok" içeriyor mu
         System.out.println(str.contains("cok")); // true
 
-        // kullanıcıdan aldıgımız cümle "çok"  ile başlayayan ilk kelimeyi yazdırın
+        // kullanıcıdan aldıgımız cümle "çok"  ile başlayan ilk kelimeyi yazdırın
 
         System.out.println(str.endsWith("cok")); // false
 
@@ -24,7 +24,8 @@ public class C05_indexOf {
         // sonra o index'ten sonrasında 2. o'yu aratırız.
 
         int ilkOindexi=str.indexOf("o"); // 10
-        int ikinciOindexi=str.indexOf("o", ilkOindexi);
+        int ikinciOindexi=str.indexOf("o", ilkOindexi+1);
+        // +1 koymazsak ilk o'yu bulur
 
         System.out.println(ilkOindexi+ " " +ikinciOindexi);
 

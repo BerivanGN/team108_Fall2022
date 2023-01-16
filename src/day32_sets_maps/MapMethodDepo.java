@@ -355,6 +355,7 @@ public class MapMethodDepo {
             // (isimde en uzun Berivan ona göre belirledik.)
             // sınırlandırmak isteseydik nokta koyardık
             // (%6.6s bu 6'ya göre sınırlandırırdı)
+            // s >>> S (büyük S) olarak yazılsaydı.. S olan her yer büyük harfle yazılırdı.
 
         }
 

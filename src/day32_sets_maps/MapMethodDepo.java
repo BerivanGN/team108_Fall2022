@@ -334,11 +334,28 @@ public class MapMethodDepo {
         }
         // Sıralı seti yazdıralım
 
-        System.out.println("isim soyisim no sınıf şube bolum");
-        System.out.println("================================");
+        System.out.println("isim  soyisim no sınıf şube bolum");
+        System.out.println("=================================");
 
         for (String each : isimSoyisimSiraliSet) {
-            System.out.println(each);
+            // System.out.println(each);
+
+            String[] duzenliYazdirArr=each.split(" ");
+
+            String isim=duzenliYazdirArr[0];
+            String soyisim=duzenliYazdirArr[1];
+            String no=duzenliYazdirArr[2];
+            String sinif=duzenliYazdirArr[3];
+            String sube=duzenliYazdirArr[4];
+            String bolum=duzenliYazdirArr[5];
+
+
+            System.out.printf("%-7s %-7s %-3s  %2s   %s   %s%n", isim,soyisim,no,sinif,sube,bolum);
+            // %'nin yanındaki numarayı en uzun olana göre belirliyoruz.
+            // (isimde en uzun Berivan ona göre belirledik.)
+            // sınırlandırmak isteseydik nokta koyardık
+            // (%6.6s bu 6'ya göre sınırlandırırdı)
+
         }
 
 

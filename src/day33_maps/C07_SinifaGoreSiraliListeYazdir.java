@@ -16,6 +16,18 @@ public class C07_SinifaGoreSiraliListeYazdir {
 
         MapMethodDepo.sinifSiraliListeYazdir(ogrenciMap);
 
+        /*
+        sınıf şube isim  soyisim  no
+        ==========================
+        10    H    Ayşe   Can     104
+        10    H    Sevgi  Can     105
+        10    K    Veli   Cem     102
+        11    H    Ali    Can     101
+        11    K    Ali    Cem     103
+        11    K    Sevgi  Can     106
+
+         */
+
 
 
     }

@@ -65,8 +65,12 @@ public class C04_BolmeIslemSonucunuCarpmaIleBulma {
         while (bolumSonucu*bolenSayi<bolunecekSayi){
             bolumSonucu++;
         }
-        bolumSonucu--;
-        System.out.println("Bölme işileminin sonucu = " + bolumSonucu*sonucIsareti);
+        if(bolumSonucu*bolenSayi==bolunecekSayi){
+            System.out.println("Bölme işileminin sonucu = " + bolumSonucu*sonucIsareti);
+        }else {
+            System.out.println("Bölme işileminin sonucu = " + (bolumSonucu-1)*sonucIsareti);
+        }
+
 
     }
 }
